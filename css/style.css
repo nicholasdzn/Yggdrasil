@@ -1,0 +1,16 @@
+.custom-row {
+  height: 90%;
+}
+
+#response-area::-webkit-scrollbar {
+  width: 12px;
+}
+
+#response-area::-webkit-scrollbar-thumb {
+  background: #6c757d;
+  border-right: 8px solid #212529;
+}
+
+#response-area::-webkit-scrollbar-track {
+  background: none;
+}
