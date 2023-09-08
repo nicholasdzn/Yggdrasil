@@ -1,4 +1,3 @@
-// controllers/messageController.js
 const MessageService = require('../services/messageService');
 
 module.exports = {

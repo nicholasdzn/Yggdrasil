@@ -1,4 +1,3 @@
-// controllers/deletedMessageController.js
 const DeletedMessageService = require('../services/deletedMessageService');
 
 module.exports = {

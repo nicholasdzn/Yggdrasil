@@ -1,4 +1,3 @@
-// models/subscription.js
 const Sequelize = require('sequelize');
 
 module.exports = (sequelize) => {

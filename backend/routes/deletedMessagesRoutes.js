@@ -1,4 +1,3 @@
-// routes/deletedMessageRoutes.js
 const express = require('express');
 const router = express.Router();
 const DeletedMessageController = require('../controllers/deletedMessageController');

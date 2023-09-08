@@ -1,4 +1,3 @@
-// services/messageService.js
 const MessageDAO = require('../dao/messageDAO');
 
 module.exports = {

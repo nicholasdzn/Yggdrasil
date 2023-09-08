@@ -1,4 +1,3 @@
-// routes/chatModelRoutes.js
 const express = require('express');
 const router = express.Router();
 const ChatModelController = require('../controllers/chatModelController');

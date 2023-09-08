@@ -1,4 +1,3 @@
-// services/subscriptionService.js
 const SubscriptionDAO = require('../dao/subscriptionDAO');
 
 module.exports = {

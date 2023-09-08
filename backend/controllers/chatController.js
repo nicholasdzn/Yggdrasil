@@ -1,4 +1,3 @@
-// controllers/chatController.js
 const ChatService = require('../services/chatService');
 
 module.exports = {

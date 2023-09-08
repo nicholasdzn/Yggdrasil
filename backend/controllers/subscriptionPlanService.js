@@ -1,4 +1,3 @@
-// controllers/subscriptionPlanController.js
 const SubscriptionPlanService = require('../services/subscriptionPlanService');
 
 module.exports = {

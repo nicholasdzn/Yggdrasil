@@ -1,4 +1,3 @@
-// controllers/chatModelController.js
 const ChatModelService = require('../services/chatModelService');
 
 module.exports = {

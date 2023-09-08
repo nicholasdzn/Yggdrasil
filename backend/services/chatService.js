@@ -2,6 +2,7 @@
 const ChatDAO = require('../dao/chatDAO');
 
 module.exports = {
+  
   createChat: async (userID, creationDate, endDate, status, createdBy, createdDate, modelID) => {
     try {
       // Adicione qualquer lógica de negócios necessária aqui, se aplicável.

@@ -1,4 +1,3 @@
-// services/deletedMessageService.js
 const DeletedMessageDAO = require('../dao/deletedMessageDAO');
 
 module.exports = {

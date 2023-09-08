@@ -1,4 +1,3 @@
-// routes/subscriptionRoutes.js
 const express = require('express');
 const router = express.Router();
 const SubscriptionController = require('../controllers/subscriptionController');
