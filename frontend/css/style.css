@@ -1,16 +1,88 @@
-.custom-row {
-  height: 90%;
+@import url("./fonts.css");
+
+nav {
+    background-color: #22577A;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 100px;
 }
 
-#response-area::-webkit-scrollbar {
-  width: 12px;
+h1 {
+    margin: 0;
 }
 
-#response-area::-webkit-scrollbar-thumb {
-  background: #6c757d;
-  border-right: 8px solid #212529;
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
 }
 
-#response-area::-webkit-scrollbar-track {
-  background: none;
+nav ul a {
+    font-family: "Creato Display";
+    color: #ffffff;
+    font-size: 20px;
+}
+
+nav h1 {
+    font-family: "Nexa";
+    font-size: 32px;
+    color: #ffffff;
+}
+
+nav ul a {
+    outline: none;
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+}
+
+section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/sectionbg.jpg") no-repeat;
+    height: 360px;
+    background-size: cover;
+    background-position: right;
+    display: flex;
+    justify-content: center;
+}
+
+.section-div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.section-div h1 {
+    color: #ffffff;
+    font-family: "Nexa";
+    font-size: 48px;
+}
+
+.section-div h3 {
+    font-family: "Creato Display";
+    color: #ffffff;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+.section-div button {
+    background-color: #22577A;
+    border: none;
+    width: 370px;
+    text-decoration: underline;
+    padding: 20px;
+    color: #ffffff;
+    font-family: "Creato Display";
+    font-weight: 700;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.section-div button:hover {
+    cursor: pointer;
 }
