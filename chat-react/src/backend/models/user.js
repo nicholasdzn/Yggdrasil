@@ -30,5 +30,6 @@ module.exports = (sequelize) => {
     },
   }, {
     tableName: 'Users',
+    timestamps: false
   });
 };

@@ -1,4 +1,5 @@
-const { User } = require('../models');
+const sequelize = require('../../config/database');
+const User = require('../models/user')(sequelize);
 
 module.exports = {
   createUser: async (name, email, registryDate, createdBy, createdDate, updatedBy, updatedDate) => {
@@ -20,6 +21,7 @@ module.exports = {
 
   getUserByID: async (userID) => {
     try {
+      console.log('Realizando Busca de Usuário UserID: ', userID)
       const user = await User.findByPk(userID);
       return user;
     } catch (error) {
