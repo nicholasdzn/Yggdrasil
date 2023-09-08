@@ -1,0 +1,29 @@
+/* font: Creato Display */
+@font-face {
+    font-family: 'Creato Display';
+    src: url('../fonts/CreatoDisplay/CreatoDisplay-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Creato Display';
+    src: url('../fonts/CreatoDisplay/CreatoDisplay-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Creato Display';
+    src: url('../fonts/CreatoDisplay/CreatoDisplay-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: medium;
+}
+
+/* font: Nexa */
+@font-face {
+    font-family: 'Nexa';
+    src: url('../fonts/Nexa/Nexa-Heavy.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
