@@ -32,5 +32,6 @@ module.exports = (sequelize) => {
     },
   }, {
     tableName: 'SubscriptionPlans',
+    timestamp: false
   });
 };

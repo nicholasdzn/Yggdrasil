@@ -28,5 +28,6 @@ module.exports = (sequelize) => {
     },
   }, {
     tableName: 'DeletedMessages',
+    timestamp: false
   });
 };

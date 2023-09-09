@@ -38,5 +38,6 @@ module.exports = (sequelize) => {
     },
   }, {
     tableName: 'Messages',
+    timestamp: false
   });
 };

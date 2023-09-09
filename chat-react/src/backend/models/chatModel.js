@@ -35,5 +35,6 @@ module.exports = (sequelize) => {
     },
   }, {
     tableName: 'ChatModels',
+    timestamp: false
   });
 };
