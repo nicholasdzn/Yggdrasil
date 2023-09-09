@@ -21,7 +21,6 @@ module.exports = {
 
   getUserByID: async (userID) => {
     try {
-      console.log('Realizando Busca de Usuário UserID: ', userID)
       const user = await User.findByPk(userID);
       return user;
     } catch (error) {

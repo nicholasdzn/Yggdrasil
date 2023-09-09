@@ -1,4 +1,6 @@
-const { ChatModel } = require('../models');
+const sequelize = require('../../config/database');
+
+const ChatModel = require('../models/chatModel')(sequelize);
 
 module.exports = {
   createChatModel: async (name, description, configuration, monthlyPrice, createdBy, createdDate, updatedBy, updatedDate) => {

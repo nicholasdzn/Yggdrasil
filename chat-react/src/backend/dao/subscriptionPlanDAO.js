@@ -1,4 +1,5 @@
-const { SubscriptionPlan } = require('../models');
+const sequelize = require('../../config/database');
+const SubscriptionPlan = require('../models/subscriptionPlan')(sequelize);
 
 module.exports = {
   createSubscriptionPlan: async (name, description, monthlyPrice, createdBy, createdDate) => {

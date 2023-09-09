@@ -1,4 +1,8 @@
-const { Subscription, User, SubscriptionPlan } = require('../models');
+const sequelize = require('../../config/database');
+
+const SubscriptionPlan = require('../models/subscriptionPlan')(sequelize);
+const User = require('../models/user')(sequelize);
+const Subscription = require('../models/subscription')(sequelize);
 
 module.exports = {
   createSubscription: async (userID, planID, startDate, endDate, createdBy, createdDate) => {

@@ -1,4 +1,8 @@
-const { DeletedMessage, Message, User } = require('../models');
+const sequelize = require('../../config/database');
+
+const DeletedMessage = require('../models/deletedMessages')(sequelize);
+const Message = require('../models/message')(sequelize);
+const User = require('../models/user')(sequelize);
 
 module.exports = {
   createDeletedMessage: async (messageID, userID, createdBy, createdDate) => {
