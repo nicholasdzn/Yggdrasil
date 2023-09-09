@@ -1,7 +1,6 @@
 require('dotenv').config();
 const sequelize = require('../config/database');
 const UserDao = require('../backend/dao/userDAO');
-const { User } = require('../backend/models/user');
 
 (async () => {
   try {
