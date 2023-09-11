@@ -1,4 +1,4 @@
-const sequelize = require('../../config/database');
+const sequelize = require('../config/database');
 const SubscriptionPlan = require('../models/subscriptionPlan')(sequelize);
 
 module.exports = {
