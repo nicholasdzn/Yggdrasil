@@ -1,24 +1,40 @@
-import { useState } from 'react';
-import sequelize from "@/config/database"
-import { Sequelize } from "sequelize";
-import connectDb from "./app";
+"use client";
+
+import { useState } from "react";
+import axios from "axios";
 
 export default function Home() {
-  const [result, setResult] = useState(null);
+  const [prompt, setPrompt] = useState(""); // Estado para armazenar o prompt
+  const [apiData, setApiData] = useState(null);
 
-  async function handleClick() {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      const connectionResult = await connectDb();
-      setResult(connectionResult);
+      const response = await axios.post("/api/cohere", { prompt });
+      setApiData(response.data);
     } catch (error) {
-      console.error('Erro ao conectar ao banco de dados:', error);
+      console.error(error);
     }
-  }
+  };
 
   return (
-    <main>
-      <button onClick={handleClick}>Clique para conectar</button>
-      {result && <p>Resultado da conexão: {result}</p>}
-    </main>
-  )
+    <div>
+      <h1>Alterar Prompt</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+          placeholder="Digite um novo prompt"
+        />
+        <button type="submit">Enviar</button>
+      </form>
+      {apiData && (
+        <div>
+          <h2>Resposta:</h2>
+          <p>{apiData}</p>
+        </div>
+      )}
+    </div>
+  );
 }
