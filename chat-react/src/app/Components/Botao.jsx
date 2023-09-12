@@ -1,5 +1,5 @@
-export default function Botao() {
-    return (
-        <button>iniciar</button>
-    )
-}
+// export default function Botao() {
+//     return (
+//         <button>iniciar</button>
+//     )
+// }

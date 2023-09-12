@@ -1,4 +1,4 @@
-const sequelize = require('../../config/database');
+const sequelize = require('../config/database');
 
 const Message = require('../models/message')(sequelize);
 const Chat = require('../models/chat')(sequelize);

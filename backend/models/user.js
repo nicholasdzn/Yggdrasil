@@ -12,6 +12,12 @@ module.exports = (sequelize) => {
     },
     Email: {
       type: Sequelize.STRING(255),
+      allowNull: false,
+      unique: true,
+    },
+    Password: {
+      type: Sequelize.STRING(255),
+      allowNull: false
     },
     RegistryDate: {
       type: Sequelize.DATE,
