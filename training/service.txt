@@ -1,0 +1,13 @@
+sudo nano /etc/systemd/system/chat.service
+gunicorn -b 0.0.0.0:8000 app:app 
+
+sudo systemctl daemon-reload
+sudo systemctl start chat
+sudo systemctl enable chat
+
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+sudo nano /etc/nginx/sites-available/default
+
+sudo systemctl restart nginx
