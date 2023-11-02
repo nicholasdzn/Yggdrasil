@@ -1,0 +1,69 @@
+
+:root{
+    --color-light-50: #f8fafc;
+
+    --color-dark-50: #797984;
+    --color-dark-100: #312d37;
+    --color-dark-900: #000;
+
+
+    --color-purple-50: #7c3aed;
+    --color-purple-100: #a855f7;
+    --color-purple-200: #bf46ef;
+
+    --branco: #f8fafc;
+    --titulo: #57CC99;
+    --letras: #C7F9CC;
+    --verde: #42b885;
+    --azul: #22577A;
+
+
+    --color-gradient: linear-gradient(90deg, var(--azul), var(--verde));
+}
+
+.Form{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.336);
+
+}
+
+.bg-verde {
+    background-color: var(--verde);
+}
+
+.div-form {
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.336);
+}
+.verde {
+    border-color: var(--verde);
+}
+.form_header h1{
+    font-size: 40px;
+    position: relative;
+}
+
+.form_header h1::before{
+    position: absolute; 
+    content: '';
+    width: 40%;
+    background-color: var(--azul);
+    height: 3px;
+    bottom: 10px;
+    border-radius: 5px;
+}
+
+
+
+.social_midia img{
+    width: 35px;
+}
+
+.social_midia img:hover{
+    transform: scale(1.2);
+}
+
+input{
+    width: 100%;
+}
+
