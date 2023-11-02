@@ -4,13 +4,9 @@ import FormLogin from '../../components/FormLogin/FormLogin'
 
 const Login = () => {
     return (
-        <>
-            <div className='Login h-screen flex items-center justify-center'>
-                <FormLogin/>
-            </div>
-            
-        </>
-
+        <div className='h-screen flex items-center justify-center'>
+            <FormLogin />
+        </div>
     )
 }
 

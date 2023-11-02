@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins%3Awght%40100%3B200%3B300%3B400&display=swap%27%29%3B');
 
 
-:root{
+:root {
     --branco: #f8fafc;
     --titulo: #57CC99;
     --letras: #C7F9CC;
@@ -11,15 +11,14 @@
 }
 
 
-*{
-    font-family: 'Poppins',  sans-serif;
+* {
+    font-family: 'Poppins', sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    
+
 }
 
-.Login{
+body {
     background: var(--color-gradient);
-
 }
