@@ -1,4 +1,4 @@
-const SubscriptionPlanDAO = require('../dao/subscriptionPlanDAO');
+const SubscriptionPlanDAO = require('../dao/subscriptionPlansDAO');
 
 module.exports = {
   createSubscriptionPlan: async (name, description, monthlyPrice, createdBy, createdDate, updatedBy, updatedDate) => {

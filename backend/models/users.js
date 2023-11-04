@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
 
-module.exports = (sequelize) => {
-  return sequelize.define('User', {
+module.exports = (sequelize, DataTypes) => {
+  
+  const Users =  sequelize.define('Users', {
     UserID: {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -9,33 +10,42 @@ module.exports = (sequelize) => {
     },
     Name: {
       type: Sequelize.STRING(255),
+      allowNull: false
     },
     Email: {
       type: Sequelize.STRING(255),
       allowNull: false,
       unique: true,
     },
-    Password: {
+    Password_Hash: {
       type: Sequelize.STRING(255),
       allowNull: false
     },
-    RegistryDate: {
+    Created_At: {
       type: Sequelize.DATE,
+      default: Sequelize.NOW
     },
-    CreatedBy: {
-      type: Sequelize.INTEGER,
-    },
-    CreatedDate: {
+    Last_Login: {
       type: Sequelize.DATE,
-    },
-    UpdatedBy: {
-      type: Sequelize.INTEGER,
-    },
-    UpdatedDate: {
-      type: Sequelize.DATE,
-    },
+      allowNull: true
+    }
   }, {
     tableName: 'Users',
     timestamps: false
   });
+
+  Users.associate = function(models){
+    
+    Users.hasMany(models.Chats, {
+      foreignKey: 'UserID'
+    })
+
+    Users.hasMany(models.Subscriptions, {
+      foreignKey: 'UserID'
+    })
+
+  };
+
+  return Users
+
 };

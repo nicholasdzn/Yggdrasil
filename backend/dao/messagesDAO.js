@@ -1,12 +1,12 @@
-const sequelize = require('../config/database');
+const models = require("../server.js");
 
-const Message = require('../models/message')(sequelize);
-const Chat = require('../models/chat')(sequelize);
+const Messages = models.Message
+const Chats = models.Chats
 
 module.exports = {
   createMessage: async (chatID, userType, content, sentDate, createdBy, createdDate) => {
     try {
-      const message = await Message.create({
+      const message = await Messages.create({
         ChatID: chatID,
         UserType: userType,
         Content: content,
@@ -22,8 +22,8 @@ module.exports = {
 
   getMessageByID: async (messageID) => {
     try {
-      const message = await Message.findByPk(messageID, {
-        include: [Chat],
+      const message = await Messages.findByPk(messageID, {
+        include: [Chats],
       });
       return message;
     } catch (error) {

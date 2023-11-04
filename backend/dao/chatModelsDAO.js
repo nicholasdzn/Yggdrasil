@@ -1,11 +1,10 @@
-const sequelize = require('../config/database');
-
-const ChatModel = require('../models/chatModel')(sequelize);
+const models = require("../server.js");
+const ChatModels = models.ChatModel
 
 module.exports = {
   createChatModel: async (name, description, configuration, monthlyPrice, createdBy, createdDate, updatedBy, updatedDate) => {
     try {
-      const chatModel = await ChatModel.create({
+      const chatModel = await ChatModels.create({
         Name: name,
         Description: description,
         Configuration: configuration,
@@ -23,7 +22,7 @@ module.exports = {
 
   getChatModelByID: async (modelID) => {
     try {
-      const chatModel = await ChatModel.findByPk(modelID);
+      const chatModel = await ChatModels.findByPk(modelID);
       return chatModel;
     } catch (error) {
       throw error;

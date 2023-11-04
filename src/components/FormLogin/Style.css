@@ -30,6 +30,7 @@
 
 .verde {
     border-color: var(--verde);
+    color: var(--verde);
 }
 
 @media(max-height: 800px) {
@@ -44,4 +45,7 @@
         padding: 2rem 2rem 2rem 2rem !important;
     }
 
+    .mb-6 {
+        margin-bottom: 10px;
+    }
 }

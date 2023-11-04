@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
 
-module.exports = (sequelize) => {
-  return sequelize.define('Message', {
+module.exports = (sequelize, DataTypes) => {
+  
+  const Messages =  sequelize.define('Messages', {
     MessageID: {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -20,24 +21,21 @@ module.exports = (sequelize) => {
     SentDate: {
       type: Sequelize.DATE,
     },
-    IsDeleted: {
-      type: Sequelize.BOOLEAN,
-      defaultValue: false,
-    },
-    CreatedBy: {
-      type: Sequelize.INTEGER,
-    },
     CreatedDate: {
-      type: Sequelize.DATE,
-    },
-    UpdatedBy: {
-      type: Sequelize.INTEGER,
-    },
-    UpdatedDate: {
       type: Sequelize.DATE,
     },
   }, {
     tableName: 'Messages',
     timestamp: false
   });
+
+  Messages.associate = function(models) {
+
+    Messages.belongsTo(models.Chats, {
+      foreignKey: 'ChatID',
+    })
+
+  };
+
+  return Messages
 };

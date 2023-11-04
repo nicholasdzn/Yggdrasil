@@ -1,8 +1,8 @@
 const sequelize = require('../config/database');
 
-const User = require('../models/user')
-const Chat = require('../models/chat')
-const ChatModel = require('../models/chatModel')(sequelize);
+const User = require('../models/users')
+const Chat = require('../models/chats')
+const ChatModel = require('../models/chatModels')(sequelize);
 
 module.exports = {
 

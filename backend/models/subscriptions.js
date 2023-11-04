@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
-module.exports = (sequelize) => {
-  return sequelize.define('Subscription', {
+module.exports = (sequelize, DataTypes) => {
+  const Subscriptions =  sequelize.define('Subscriptions', {
     SubscriptionID: {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -22,14 +22,8 @@ module.exports = (sequelize) => {
     EndDate: {
       type: Sequelize.DATE,
     },
-    CreatedBy: {
-      type: Sequelize.INTEGER,
-    },
     CreatedDate: {
       type: Sequelize.DATE,
-    },
-    UpdatedBy: {
-      type: Sequelize.INTEGER,
     },
     UpdatedDate: {
       type: Sequelize.DATE,
@@ -38,4 +32,17 @@ module.exports = (sequelize) => {
     tableName: 'Subscriptions',
     timestamp: false
   });
+
+  Subscriptions.associate = function(models) {
+
+    Subscriptions.belongsTo(models.Users, {
+      foreignKey: 'UserID'
+    });
+
+    Subscriptions.belongsTo(models.SubscriptionPlans, {
+      foreignKey: 'PlanID'
+    });
+
+  };
+  return Subscriptions
 };

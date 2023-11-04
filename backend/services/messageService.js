@@ -1,4 +1,4 @@
-const MessageDAO = require('../dao/messageDAO');
+const MessageDAO = require('../dao/messagesDAO');
 
 module.exports = {
   createMessage: async (chatID, userType, content, sentDate, createdBy, createdDate) => {

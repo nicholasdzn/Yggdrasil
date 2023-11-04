@@ -1,13 +1,13 @@
-const sequelize = require('../config/database');
+const models = require("../server.js");
 
-const SubscriptionPlan = require('../models/subscriptionPlan')(sequelize);
-const User = require('../models/user')(sequelize);
-const Subscription = require('../models/subscription')(sequelize);
+const SubscriptionPlans = models.SubscriptionPlans;
+const Users = models.Users;
+const Subscriptions = models.Subscriptions;
 
 module.exports = {
   createSubscription: async (userID, planID, startDate, endDate, createdBy, createdDate) => {
     try {
-      const subscription = await Subscription.create({
+      const subscription = await Subscriptions.create({
         UserID: userID,
         PlanID: planID,
         StartDate: startDate,
@@ -23,8 +23,8 @@ module.exports = {
 
   getSubscriptionByID: async (subscriptionID) => {
     try {
-      const subscription = await Subscription.findByPk(subscriptionID, {
-        include: [User, SubscriptionPlan],
+      const subscription = await Subscriptions.findByPk(subscriptionID, {
+        include: [Users, SubscriptionPlans],
       });
       return subscription;
     } catch (error) {

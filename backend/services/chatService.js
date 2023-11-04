@@ -1,5 +1,5 @@
 // services/chatService.js
-const ChatDAO = require('../dao/chatDAO');
+const ChatDAO = require('../dao/chatsDAO');
 
 module.exports = {
   

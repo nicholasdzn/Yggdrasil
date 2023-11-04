@@ -1,10 +1,10 @@
-const UserDAO = require('../dao/userDAO');
+const UserDAO = require('../dao/usersDAO');
 
 module.exports = {
-  createUser: async (name, email, registryDate, createdBy, createdDate, updatedBy, updatedDate) => {
+  createUser: async (name, email, password) => {
     try {
       // Adicione qualquer lógica de negócios necessária aqui, se aplicável.
-      return await UserDAO.createUser(name, email, registryDate, createdBy, createdDate, updatedBy, updatedDate);
+      return await UserDAO.createUser(name, email, password);
     } catch (error) {
       throw error;
     }

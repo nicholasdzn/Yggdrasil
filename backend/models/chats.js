@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
 
-module.exports = (sequelize) => {
-  return sequelize.define('Chat', {
+module.exports = (sequelize, DataTypes) => {
+
+  const Chats = sequelize.define('Chats', {
     ChatID: {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -16,26 +17,35 @@ module.exports = (sequelize) => {
     EndDate: {
       type: Sequelize.DATE,
     },
-    Status: {
-      type: Sequelize.ENUM('active', 'finished', 'archived'),
-    },
-    CreatedBy: {
-      type: Sequelize.INTEGER,
-    },
-    CreatedDate: {
-      type: Sequelize.DATE,
-    },
-    UpdatedBy: {
-      type: Sequelize.INTEGER,
-    },
     UpdatedDate: {
       type: Sequelize.DATE,
     },
     ModelID: {
       type: Sequelize.INTEGER,
     },
+    IsDeleted: {
+      type: Sequelize.BOOLEAN
+    }
   }, {
     tableName: 'Chats',
     timestamp: false
   });
+
+  Chats.associate = function(models) {
+
+    Chats.belongsTo(models.Users, {
+      foreignKey: 'UserID',
+    });
+
+    Chats.belongsTo(models.ChatModels, {
+      foreignKey: 'ModelID',
+    });
+    
+    Chats.hasMany(models.Messages,{
+      foreignKey: 'ChatID'
+    });
+
+  };
+
+  return Chats
 };

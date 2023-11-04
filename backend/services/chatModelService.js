@@ -1,4 +1,4 @@
-const ChatModelDAO = require('../dao/chatModelDAO');
+const ChatModelDAO = require('../dao/chatModelsDAO');
 
 module.exports = {
   createChatModel: async (name, description, configuration, monthlyPrice, createdBy, createdDate, updatedBy, updatedDate) => {

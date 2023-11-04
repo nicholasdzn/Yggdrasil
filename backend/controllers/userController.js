@@ -12,7 +12,7 @@ module.exports = {
       console.log("Usuário registrado com sucesso");
       res.status(201).json({ token });
     } catch (error) {
-      return res.status(500).json({ error: 'Erro ao criar usuário.' });
+      return res.status(500).json({ error: 'Erro ao criar usuário.', exception: error });
     }
   },
 
