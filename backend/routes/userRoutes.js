@@ -7,7 +7,10 @@ const bodyParser = require('body-parser');
 var jsonParser = bodyParser.json()
 
 // Rota para criar um novo usuário
-router.post('/users', jsonParser, UserController.createUser);
+router.post('/users/create', jsonParser, UserController.createUser);
+
+// Rota para logar um usuário
+router.post('/users/login', jsonParser, UserController.loginUser);
 
 // Rota para buscar um usuário pelo ID
 router.get('/users/:userID', UserController.getUserByID);

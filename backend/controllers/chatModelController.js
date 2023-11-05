@@ -1,6 +1,7 @@
 const ChatModelService = require('../services/chatModelService');
 
 module.exports = {
+  
   createChatModel: async (req, res) => {
     try {
       const { name, description, configuration, monthlyPrice, createdBy, createdDate, updatedBy, updatedDate } = req.body;

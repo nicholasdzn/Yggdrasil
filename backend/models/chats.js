@@ -3,6 +3,7 @@ const Sequelize = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
 
   const Chats = sequelize.define('Chats', {
+
     ChatID: {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -11,13 +12,17 @@ module.exports = (sequelize, DataTypes) => {
     UserID: {
       type: Sequelize.INTEGER,
     },
+    ChatName:{
+      type: Sequelize.STRING(100),
+    },
     CreationDate: {
       type: Sequelize.DATE,
     },
     EndDate: {
       type: Sequelize.DATE,
+      allowNull: true
     },
-    UpdatedDate: {
+    LastUpdateDate: {
       type: Sequelize.DATE,
     },
     ModelID: {

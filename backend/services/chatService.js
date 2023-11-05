@@ -1,12 +1,11 @@
-// services/chatService.js
 const ChatDAO = require('../dao/chatsDAO');
 
 module.exports = {
   
-  createChat: async (userID, creationDate, endDate, status, createdBy, createdDate, modelID) => {
+  createChat: async (userID, modelID, chatName) => {
     try {
       // Adicione qualquer lógica de negócios necessária aqui, se aplicável.
-      return await ChatDAO.createChat(userID, creationDate, endDate, status, createdBy, createdDate, modelID);
+      return await ChatDAO.createChat(userID, modelID, chatName);
     } catch (error) {
       throw error;
     }

@@ -32,8 +32,6 @@ sequelize.sync({ force: true }) // ATENÇÃO: { force: true } irá DROPAR suas t
     console.log('Banco de dados e tabelas criados!');
 });
 
-console.log('Initializing Server');
-
 const server = express();
 server.use('/api', userRoutes);
 

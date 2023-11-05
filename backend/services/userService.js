@@ -1,6 +1,7 @@
 const UserDAO = require('../dao/usersDAO');
 
 module.exports = {
+
   createUser: async (name, email, password) => {
     try {
       // Adicione qualquer lógica de negócios necessária aqui, se aplicável.
@@ -19,5 +20,12 @@ module.exports = {
     }
   },
 
+  authenticateUser: async (email, password) => {
+    try {
+      return await UserDAO.authenticateUser(email, password);
+    }catch (error){
+      throw error;
+    }
+  }
   // Outras operações de lógica de negócios relacionadas a Users
 };

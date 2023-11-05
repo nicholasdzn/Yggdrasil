@@ -1,10 +1,11 @@
 const ChatService = require('../services/chatService');
 
 module.exports = {
+  
   createChat: async (req, res) => {
     try {
-      const { userID, creationDate, endDate, status, createdBy, createdDate, modelID } = req.body;
-      const chat = await ChatService.createChat(userID, creationDate, endDate, status, createdBy, createdDate, modelID);
+      const { userID, modelID, chatName } = req.body;
+      const chat = await ChatService.createChat(userID, modelID, chatName);
       return res.status(201).json(chat);
     } catch (error) {
       return res.status(500).json({ error: 'Erro ao criar chat.' });

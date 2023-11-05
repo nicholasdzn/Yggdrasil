@@ -1,6 +1,7 @@
 const SubscriptionPlanService = require('../services/subscriptionPlanService');
 
 module.exports = {
+  
   createSubscriptionPlan: async (req, res) => {
     try {
       const { name, description, monthlyPrice, createdBy, createdDate, updatedBy, updatedDate } = req.body;
