@@ -28,6 +28,11 @@
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.336);
 }
 
+img {
+    height: 200px;
+    width: 200px;
+}
+
 .verde {
     border-color: var(--verde);
     color: var(--verde);
