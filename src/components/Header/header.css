@@ -20,14 +20,6 @@ header {
     }
 }
 
-
-
 .li-header:last-child {
     background-color: #80ED99;
-}
-
-.logotipo-svg {
-    height: 50px;
-    width: 150px;
-    fill: #fff;
 }

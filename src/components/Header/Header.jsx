@@ -1,12 +1,12 @@
 import React from 'react'
 import './header.css'
 import { Link } from 'react-router-dom'
-import LogoTipo from "../../assets/svg/yggdrasil.svg"
+import Logo from '../Logo/Logo'
 
 const Header = () => {
     return (
         <header className='flex flex-row justify-between items-center px-8 py-4 text-white font-regular text-center'>
-            <div className=''><img src={LogoTipo} alt="" className='logotipo-svg' /></div>
+            <div className=''><Logo /></div>
             <ul className='flex gap-10 items-center ul-header'>
                 <li className='li-header'>Sobre</li>
                 <li className='li-header'>Contato</li>
