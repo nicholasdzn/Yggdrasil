@@ -1,8 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
-const dev = process.env.NODE_ENV !== 'production';
-const userRoutes = require('./routes/userRoutes'); // Importe suas rotas personalizadas
+const userRoutes = require('./routes/userRoutes');
 
 const Sequelize = require('sequelize');
 const config = require('./config/config.js').development;
@@ -45,10 +44,5 @@ server.listen(PORT, (err) => {
   if (err) throw err;
   console.log(`> Ready on http://localhost:${PORT}`);
 });
-
-// server.get("/", (req, res) => {
-//   res.send("Servidor rodando!");
-// });
-
 
 module.exports = models;

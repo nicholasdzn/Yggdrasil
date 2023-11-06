@@ -20,5 +20,14 @@ module.exports = {
     }
   },
 
+  getChatNamesFromUserID: async (userID) => {
+    // Adicionar qualquer lógica de negócios se aplicável.
+    try {
+      return await ChatDAO.getChatNamesFromUserID(userID)
+    } catch (error) {
+      throw error;
+    }
+  },
+
   // Outras operações de lógica de negócios relacionadas a Chats
 };

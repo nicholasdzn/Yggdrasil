@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     ChatName:{
       type: Sequelize.STRING(100),
+      default: 'Novo Chat'
     },
     CreationDate: {
       type: Sequelize.DATE,

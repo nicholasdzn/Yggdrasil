@@ -34,5 +34,20 @@ module.exports = {
     }
   },
 
+  getChatNamesFromUserID: async (userID) => {
+    try{
+
+      const chatNames = await Chat.findAll({
+        where: { userID },
+        attributes: ['ChatName']
+      });
+
+      return chatNames;
+      
+    } catch (error){
+      throw error;
+    }
+  }
+
   // Outras operações de acesso a dados relacionadas a Chats
 };
