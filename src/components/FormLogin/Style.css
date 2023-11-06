@@ -28,7 +28,7 @@
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.336);
 }
 
-img {
+.logo-png {
     height: 200px;
     width: 200px;
 }
@@ -39,7 +39,7 @@ img {
 }
 
 @media(max-height: 800px) {
-    img {
+    .logo-png {
         height: 150px !important;
         width: 150px !important;
     }

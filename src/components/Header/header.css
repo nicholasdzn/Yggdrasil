@@ -2,17 +2,17 @@ header {
     background-color: #22577A;
 }
 
-@media(max-width: 430px) {
+@media(max-width: 550px) {
     header {
         flex-direction: column !important;
         gap: 8px;
     }
 
-    ul {
+    .ul-header {
         gap: 0.5rem !important;
     }
 
-    li {
+    .li-header {
         background-color: #2b6992 !important;
         padding: 0.5rem 1.5rem 0.5rem 1.5rem !important;
         border-radius: 9999px;
@@ -22,6 +22,12 @@ header {
 
 
 
-li:last-child {
+.li-header:last-child {
     background-color: #80ED99;
+}
+
+.logotipo-svg {
+    height: 50px;
+    width: 150px;
+    fill: #fff;
 }

@@ -5,9 +5,19 @@
 
 :root {
     background-color: #fff;
+    --branco: #f8fafc;
+    --titulo: #57CC99;
+    --letras: #C7F9CC;
+    --verde: #42b885;
+    --azul: #22577A;
+    --color-gradient: linear-gradient(90deg, var(--azul), var(--verde));
 }
 
 .font-regular {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
+}
+
+* {
+    box-sizing: border-box;
 }
