@@ -1,5 +1,5 @@
 import React from 'react'
-import LogoTipo from "../../assets/svg/yggdrasil.svg"
+import LogoTipo from "/yggdrasil.svg"
 
 const Logo = () => {
     return (
