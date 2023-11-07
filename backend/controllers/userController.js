@@ -9,7 +9,7 @@ module.exports = {
     try {
       
       const { name, email, password } = req.body;
-      
+
       const user = await UserService.createUser(name, email, password);
       
       const token = jwt.sign({ userId: user.id }, jwtSecret, { expiresIn: '1h' });
