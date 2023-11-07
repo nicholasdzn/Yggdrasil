@@ -1,10 +1,13 @@
 require('dotenv').config();
 
 const express = require('express');
+const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
-
 const Sequelize = require('sequelize');
 const config = require('./config/config.js').development;
+const server = express();
+
+server.use(cors());
 
 const sequelize = new Sequelize(config.database, config.username, config.password, {
   host: config.host,
@@ -31,7 +34,7 @@ sequelize.sync({ force: true }) // ATENÇÃO: { force: true } irá DROPAR suas t
     console.log('Banco de dados e tabelas criados!');
 });
 
-const server = express();
+
 server.use('/api', userRoutes);
 
 server.all('*', (req, res) => {

@@ -20,9 +20,9 @@ module.exports = {
 
       const existingUser = Users.findOne({where: {Email: email}});
 
-      if (existingUser){
-        throw new Error('Esse e-mail já foi cadastrado')
-      }
+      // if (existingUser){
+      //   throw new Error('Esse e-mail já foi cadastrado')
+      // }
 
       const user = await Users.create({
         Name: name,
