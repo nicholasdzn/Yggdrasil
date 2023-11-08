@@ -40,7 +40,7 @@ const Register = () => {
   }
 
   return (
-    <div className='h-screen flex items-center justify-center'>
+    <div className='h-screen flex items-center justify-center div-login'>
       <FormLogin registerField={true} handleChange={handleChange} handleSubmit={handleSubmit} />
     </div>
   )
