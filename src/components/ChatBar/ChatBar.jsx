@@ -8,13 +8,13 @@ import { BsChatLeft } from "react-icons/bs"
 
 const ChatBar = () => {
     return (
-        <div className='top-0 left-0 fixed bg-zinc-800 h-full w-[15rem] p-3 flex flex-col chat-bar'>
+        <aside className='bg-zinc-800 h-screen min-w-[15rem] pl-3 pt-3 pb- 3 flex flex-col chat-bar overflow-hidden'>
             <div className='pb-3 flex flex-row items-center justify-evenly'>
                 <Logo width={140} />
                 <AiOutlineClose fill='#fff' className='cursor-pointer' size={20} />
             </div>
             <span className='border-b-2 border-solid border-gray-500'></span>
-            <div className='hover:overflow-y-scroll flex flex-col pt-3'>
+            <div className='hover:overflow-y-scroll flex flex-col pt-3 pr-3'>
                 <div className='flex flex-row items-center gap-3 border border-solid p-2 text-white rounded cursor-pointer border-gray-500'>
                     <AiOutlinePlus />
                     <h2>Novo Chat</h2>
@@ -70,7 +70,7 @@ const ChatBar = () => {
 
                 </div>
             </div>
-        </div>
+        </aside>
     )
 };
 

@@ -5,7 +5,10 @@ import ChatContent from '../../components/ChatContent/ChatContent'
 
 const Chat = () => {
     return (
-        <ChatBar />
+        <div className='flex flex-row'>
+            <ChatBar />
+            <ChatContent />
+        </div>
     )
 }
 
