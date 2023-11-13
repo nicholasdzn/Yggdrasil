@@ -4,7 +4,6 @@
 @tailwind utilities;
 
 :root {
-    background-color: #fff;
     --branco: #f8fafc;
     --titulo: #57CC99;
     --letras: #C7F9CC;

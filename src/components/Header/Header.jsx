@@ -6,7 +6,7 @@ import Logo from '../Logo/Logo'
 const Header = () => {
     return (
         <header className='flex flex-row justify-between items-center px-8 py-4 text-white font-regular text-center'>
-            <div className=''><Logo /></div>
+            <div className=''><Logo height={50} width={150} /></div>
             <ul className='flex gap-10 items-center ul-header'>
                 <li className='li-header'>Sobre</li>
                 <li className='li-header'>Contato</li>

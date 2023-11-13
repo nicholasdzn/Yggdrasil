@@ -1,4 +1,7 @@
-.nav-chat {
-    position: fixed;
-    left: 0;
+::-webkit-scrollbar {
+    width: 0.3rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--verde);
 }
