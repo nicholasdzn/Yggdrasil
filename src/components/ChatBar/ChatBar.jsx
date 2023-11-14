@@ -8,12 +8,12 @@ import { BsChatLeft } from "react-icons/bs"
 
 const ChatBar = () => {
     return (
-        <aside className='bg-zinc-800 h-screen min-w-[15rem] pl-3 pt-3 pb- 3 flex flex-col chat-bar overflow-hidden'>
+        <aside className='bg-zinc-800 overflow-hidden h-full min-w-[15rem] pl-3 pt-3 pb- 3 flex flex-col chat-bar'>
             <div className='pb-3 flex flex-row items-center justify-evenly'>
                 <Logo width={140} />
                 <AiOutlineClose fill='#fff' className='cursor-pointer' size={20} />
             </div>
-            <span className='border-b-2 border-solid border-gray-500'></span>
+            <span className='border-b-2 border-solid border-gray-500 mr-3'></span>
             <div className='hover:overflow-y-scroll flex flex-col pt-3 pr-3'>
                 <div className='flex flex-row items-center gap-3 border border-solid p-2 text-white rounded cursor-pointer border-gray-500'>
                     <AiOutlinePlus />

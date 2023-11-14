@@ -1,0 +1,4 @@
+.gridChat {
+    display: grid;
+    grid-template-rows: 5fr 1fr;
+}
