@@ -6,7 +6,7 @@ import "./style.css"
 const ChatContent = () => {
     return (
         <>
-            <div className='bg-zinc-700 gridChat w-full'>
+            <div className='bg-zinc-700 gridChat'>
                 <div className='overflow-scroll px-20 text-white flex flex-col gap-3 py-5'> {/* div conteudo do chat */}
                     <div className='flex flex-row items-center gap-3 pb-2 border-solid'>
                         <div className='p-2 bg-green-600 rounded'><ImSphere /></div>

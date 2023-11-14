@@ -6,7 +6,7 @@ import ChatInput from '../../components/ChatInput/ChatInput'
 
 const Chat = () => {
     return (
-        <div className='flex flex-row h-screen w-screen'>
+        <div className='flex flex-row h-screen w-screen overflow-y-hidden'>
             <ChatBar />
             <ChatContent />
         </div>
