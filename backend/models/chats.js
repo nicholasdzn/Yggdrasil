@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     CreationDate: {
       type: Sequelize.DATE,
+      default: Sequelize.NOW
     },
     EndDate: {
       type: Sequelize.DATE,
@@ -25,12 +26,15 @@ module.exports = (sequelize, DataTypes) => {
     },
     LastUpdateDate: {
       type: Sequelize.DATE,
+      default: Sequelize.NOW
     },
     ModelID: {
       type: Sequelize.INTEGER,
+      default: 'Yggdrasil'
     },
     IsDeleted: {
-      type: Sequelize.BOOLEAN
+      type: Sequelize.BOOLEAN,
+      default: false
     }
   }, {
     tableName: 'Chats',

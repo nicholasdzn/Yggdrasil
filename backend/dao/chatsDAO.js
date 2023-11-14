@@ -1,20 +1,23 @@
-const sequelize = require('../config/database');
+const Sequelize = require('sequelize');
+const config = require('../config/config.js').development;
 
-const User = require('../models/users')
-const Chat = require('../models/chats')
-const ChatModel = require('../models/chatModels')(sequelize);
+const sequelize = new Sequelize(config.database, config.username, config.password, {
+  host: config.host,
+  dialect: config.dialect
+});
+
+const Users = require('../models/users.js')(sequelize, Sequelize)
+const Chats = require('../models/chats.js')(sequelize, Sequelize)
+const ChatModels = require('../models/chatModels.js')(sequelize, Sequelize)
 
 module.exports = {
 
-  createChat: async (userID, creationDate, endDate, status, createdBy, createdDate, modelID) => {
+  createChat: async (userID, creationDate, modelID) => {
     try {
-      const chat = await Chat.create({
+      const chat = await Chats.create({
         UserID: userID,
+        ChatName: chatName,
         CreationDate: creationDate,
-        EndDate: endDate,
-        Status: status,
-        CreatedBy: createdBy,
-        CreatedDate: createdDate,
         ModelID: modelID,
       });
       return chat;
@@ -25,8 +28,8 @@ module.exports = {
 
   getChatByID: async (chatID) => {
     try {
-      const chat = await Chat.findByPk(chatID, {
-        include: [User, ChatModel],
+      const chat = await Chats.findByPk(chatID, {
+        include: [Users, ChatModels],
       });
       return chat;
     } catch (error) {
@@ -37,9 +40,9 @@ module.exports = {
   getChatNamesFromUserID: async (userID) => {
     try{
 
-      const chatNames = await Chat.findAll({
+      const chatNames = await Chats.findAll({
         where: { userID },
-        attributes: ['ChatName']
+        attributes: ['ChatName', 'ChatID']
       });
 
       return chatNames;
@@ -48,6 +51,15 @@ module.exports = {
       throw error;
     }
   }
+
+  // getChatContentFromChatID : async (chatID) => {
+
+  //   try{
+  //     const chatMessages = null
+  //   } catch (error){
+  //     throw error;
+  //   }
+  // }
 
   // Outras operações de acesso a dados relacionadas a Chats
 };
