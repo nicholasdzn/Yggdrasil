@@ -2,16 +2,14 @@ const express = require('express');
 const router = express.Router();
 const ChatController = require('../controllers/chatController');
 const bodyParser = require('body-parser');
+const authenticateToken = require('../middlewares/authenticateTokens')
 
 var jsonParser = bodyParser.json()
 
 // Rota para criar um novo chat
-router.post('/chats/create', ChatController.createChat);
+router.post('/chats/create', jsonParser, authenticateToken, ChatController.createChat);
 
-// Rota para buscar um chat pelo ID
-router.get('/chats/:chatID', ChatController.getChatByID);
-
-router.get('/chats/:userID', ChatController.getChatNamesFromUserID);
+router.post('/chats/getChatNamesFromUserID', jsonParser, authenticateToken, ChatController.getChatNamesFromUserID);
 
 // Outras rotas relacionadas a Chats
 
