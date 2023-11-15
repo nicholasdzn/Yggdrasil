@@ -10,6 +10,7 @@ const Chat = () => {
     const [userInput, setUserInput] = useState('');
     const [aiMsg, setAiMsg] = useState('');
 
+
     const handleInput = (e) => {
         setUserInput(e.target.value);
     }
@@ -27,7 +28,7 @@ const Chat = () => {
         <div className='flex flex-row h-screen w-screen overflow-y-hidden'>
             <ChatBar />
             <ChatContent msg={aiMsg}>
-                <ChatInput value={userInput} handleInput={handleInput} handleSubmit={handleSubmit} />
+                <ChatInput value={userInput} setValue={setUserInput} handleInput={handleInput} handleSubmit={handleSubmit} />
             </ChatContent>
         </div>
     )
