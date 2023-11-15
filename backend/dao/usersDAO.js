@@ -18,11 +18,11 @@ module.exports = {
       
       const hashedPassword = await bcrypt.hash(password, 10);
 
-      const existingUser = Users.findOne({where: {Email: email}});
+      const existingUser = await Users.findOne({where: {Email: email}});
 
-      // if (existingUser){
-      //   throw new Error('Esse e-mail já foi cadastrado')
-      // }
+      if (existingUser){
+        throw new Error('Esse e-mail já foi cadastrado')
+      }
 
       const user = await Users.create({
         Name: name,

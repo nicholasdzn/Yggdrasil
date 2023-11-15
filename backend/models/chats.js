@@ -11,10 +11,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     UserID: {
       type: Sequelize.INTEGER,
+      allowNull: false
     },
     ChatName:{
       type: Sequelize.STRING(100),
-      default: 'Novo Chat'
+      default: 'Novo Chat',
+      allowNull: false
     },
     CreationDate: {
       type: Sequelize.DATE,

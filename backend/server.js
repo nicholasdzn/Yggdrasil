@@ -30,9 +30,33 @@ Object.keys(models).forEach(modelName => {
   }
 });
 
+
+async function insertDefaultModels(models) {
+  const defaultModels = [
+    {
+      Name: 'Modelo Básico',
+      MonthlyPrice: 20.00
+    },
+    {
+      Name: 'Modelo Avançado',
+      MonthlyPrice: 50.00
+    }
+  ];
+
+  for (const model of defaultModels) {
+    await models['ChatModels'].findOrCreate({
+      where: { Name: model.Name },
+      defaults: model
+    });
+  }
+}
+
 sequelize.sync({ force: true }) // ATENÇÃO: { force: true } irá DROPAR suas tabelas existentes
   .then(() => {
     console.log('Banco de dados e tabelas criados!');
+    insertDefaultModels(models).then(() => {
+      console.log('Modelos padrão inseridos.');
+    });
 });
 
 

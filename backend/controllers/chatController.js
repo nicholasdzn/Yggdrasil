@@ -28,12 +28,13 @@ module.exports = {
   getChatNamesFromUserID: async (req, res) => {
     try {
 
-      const userID = req.userID
+      const userID = req.body.userID
+      console.log('Usuário recebido: ', userID)
       const chatNames = await ChatService.getChatNamesFromUserID(userID);
       if (!chatNames){
         return res.status(404).json({ error: 'Chats não encontrados para o usuário' })
       }
-
+      return res.status(200).json(chatNames)
     }catch (error){
       return res.status(500).json({ error: 'Falha ao buscar chats do usuário'})
     }
