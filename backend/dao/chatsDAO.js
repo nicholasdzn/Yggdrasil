@@ -12,12 +12,11 @@ const ChatModels = require('../models/chatModels.js')(sequelize, Sequelize)
 
 module.exports = {
 
-  createChat: async (userID, creationDate, modelID) => {
+  createChat: async (userID, modelID, chatName) => {
     try {
       const chat = await Chats.create({
         UserID: userID,
         ChatName: chatName,
-        CreationDate: creationDate,
         ModelID: modelID,
       });
       return chat;

@@ -23,6 +23,9 @@ const Register = () => {
           title: "Sucesso!",
           text: "Você foi cadastrado com sucesso!",
         });
+        console.log(response.data.token);
+        let token = response.data.token;
+        localStorage.setItem('authtoken', token);
       }
     }
     catch (error) {

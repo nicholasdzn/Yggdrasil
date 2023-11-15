@@ -13,23 +13,28 @@ module.exports = (sequelize, DataTypes) => {
     },
     Description: {
       type: Sequelize.TEXT,
+      allowNull: true
     },
     Configuration: {
       type: Sequelize.JSON,
+      allowNull: true
     },
     MonthlyPrice: {
       type: Sequelize.DECIMAL(10, 2),
       allowNull: false,
+      default: 30
     },
     CreatedDate: {
       type: Sequelize.DATE,
+      default: Sequelize.NOW
     },
     UpdatedDate: {
       type: Sequelize.DATE,
+      default: Sequelize.NOW
     },
   }, {
     tableName: 'ChatModels',
-    timestamp: false
+    timestamps: false
   });
 
   ChatModels.associate = function(models){
