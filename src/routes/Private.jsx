@@ -9,7 +9,6 @@ const Private = ({ Item }) => {
     useEffect(() => {
         const apiCall = async (token) => {
             try {
-                console.log(token);
                 const res = await axios({
                     method: 'POST',
                     url: "http://localhost:3001/api/users/auth",
@@ -17,7 +16,6 @@ const Private = ({ Item }) => {
                         'Authorization': `Bearer ${token}`
                     }
                 })
-                console.log(res);
                 if (res.status === 200) {
                     setSigned(true);
                 }
