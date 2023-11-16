@@ -16,7 +16,7 @@ module.exports = {
       
       console.log("Usuário registrado com sucesso");
       
-      return res.status(201).json({ token });
+      return res.status(200).json({ token });
     } catch ({ name, message }) {
       return res.status(500).json({ error: 'Erro ao criar usuário.', message: message });
     }

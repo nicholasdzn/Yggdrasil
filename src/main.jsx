@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 
@@ -7,6 +7,8 @@ import Login from './pages/Login/Login.jsx'
 import HomePage from './pages/HomePage/HomePage'
 import Register from './pages/Register/Register.jsx'
 import Chat from './pages/Chat/Chat.jsx'
+import Private from './routes/Private.jsx'
+
 
 const router = createBrowserRouter([
   {
@@ -23,7 +25,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/chat",
-    element: <Chat />
+    element: <Private Item={<Chat />} />
   }
 
 ])

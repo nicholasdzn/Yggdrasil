@@ -1,11 +1,13 @@
 import React from 'react'
 import FormLogin from '../../components/FormLogin/FormLogin'
-import { useState } from 'react'
 import axios from 'axios'
 import Swal from 'sweetalert2'
-
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 const Register = () => {
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -17,15 +19,13 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:3001/api/users/create', formData);
-      if (response.status === 201) {
+      if (response.status === 200) {
         Swal.fire({
           icon: "success",
           title: "Sucesso!",
           text: "Você foi cadastrado com sucesso!",
+          preConfirm: navigate("/login")
         });
-        console.log(response.data.token);
-        let token = response.data.token;
-        localStorage.setItem('authtoken', token);
       }
     }
     catch (error) {
