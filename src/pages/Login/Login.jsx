@@ -31,11 +31,6 @@ const Login = () => {
             }
         }
         catch (error) {
-            Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Algo deu errado, tente novamente mais tarde",
-            });
             console.error('Erro:', error);
         }
     };

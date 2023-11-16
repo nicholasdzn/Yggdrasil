@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     tableName: 'Chats',
-    timestamp: false
+    timestamps: false
   });
 
   Chats.associate = function(models) {
