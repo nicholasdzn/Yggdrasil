@@ -3,5 +3,7 @@ body .DivMain {
 }
 
 .main-content {
-    background: url("../../assets/img/contentimg.png");
+    background: url("../../assets/img/contentimg.png") no-repeat;
+    object-fit: cover;
+    
 }
