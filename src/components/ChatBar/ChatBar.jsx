@@ -4,9 +4,9 @@ import { useState } from 'react';
 import Logo from '../Logo/Logo';
 import { AiOutlineClose } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
-import { BsChatLeft } from "react-icons/bs"
 import { useEffect } from 'react';
 import axios from 'axios';
+import ChatCard from '../ChatCard/ChatCard';
 
 
 const ChatBar = () => {
@@ -78,12 +78,7 @@ const ChatBar = () => {
                     <h2>Novo Chat</h2>
                 </div>
                 <div>
-                {chat.map((item, index) => (
-                    <div className='mt-2 flex flex-row items-center gap-3 p-2 text-white hover:bg-zinc-700 cursor-pointer' key={index}>
-                        <BsChatLeft fill='#fff' />
-                        <p>{item['ChatName']}</p>
-                    </div>
-                ))}
+                    {<ChatCard content={chat} />}
                 </div>
             </div>
         </aside>
