@@ -1,6 +1,5 @@
 import React from 'react'
 import { ImSphere } from "react-icons/im";
-import ChatInput from '../ChatInput/ChatInput';
 import "./style.css"
 
 const ChatContent = ({ children, msg }) => {
