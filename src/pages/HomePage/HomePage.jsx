@@ -10,15 +10,15 @@ const HomePage = () => {
             <div className='flex flex-col h-screen'>
                 <Header />
                 <section className='flex flex-col sm:flex-row items-center justify-center pt-5 gap-5 pb-5 main-content flex-1'>
-                    <div className='flex flex-col items-center justify-center text-center order-last sm:order-1'>
+                    <div className='flex flex-col items-start justify-center order-last sm:order-1'>
                         <div className='flex flex-col text-[4rem] mb-10 text-left font-bold text-[#22577A]'>
-                            <h1 className='leading-tight mb-0'>Welcome to our</h1> {/* Ajuste no leading e mb */}
+                            <h1 className='leading-tight'>Welcome to our</h1> {/* Ajuste no leading e mb */}
                             <h1 className='leading-tight'>Website!</h1>
                         </div>
-                        <div className='pr-[11rem] text-left'>
-                            <p className='mb-6'>Explore as maravilhas do nosso conteúdo.</p>
-                        </div>
                         
+                        <p className='mb-6'>Explore as maravilhas do nosso conteúdo.</p>
+                        
+                
                         <button className='bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600'>Descubra Mais</button>
                     </div>
                     <img src={Logo} alt="" className='w-[15rem] sm:w-[20rem] order-1' />
