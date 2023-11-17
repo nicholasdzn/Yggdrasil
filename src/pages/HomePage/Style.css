@@ -2,8 +2,8 @@ body .DivMain {
     background: var(--color-gradient);
 }
 
+
 .main-content {
     background: url("../../assets/img/contentimg.png") no-repeat;
-    object-fit: cover;
-    
+    background-size: cover;
 }
