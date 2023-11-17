@@ -10,11 +10,11 @@ const HomePage = () => {
                 <Header />
                 <section className='flex flex-col sm:flex-row items-center justify-center pt-5 gap-5 pb-5 main-content flex-1'>
                     <div className='flex flex-col items-center justify-center text-center order-last sm:order-1'>
-                        <h1 className='text-4xl mb-4 font-bold'>Bem-vindo ao Nosso Site!</h1>
-                        <p className='mb-6'>Explore as maravilhas do nosso conteúdo.</p>
-                        <button className='bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600'>Descubra Mais</button>
+                        <h1 className='text-4xl mb-4 font-bold 2xl:text-6xl'>Bem-vindo ao Nosso Site!</h1>
+                        <p className='mb-6 2xl:text-4xl'>Explore as maravilhas do nosso conteúdo.</p>
+                        <button className='bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 2xl:w-[20rem] 2xl:h-[5rem] 2xl:text-4xl 2xl:p-3'>Descubra Mais</button>
                     </div>
-                    <img src={Logo} alt="" className='w-[15rem] sm:w-[20rem] order-1' />
+                    <img src={Logo} alt="" className='w-[15rem] 2xl:w-[25rem] order-1' />
                 </section>
                 <Footer />
             </div>
