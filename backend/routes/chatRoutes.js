@@ -11,6 +11,8 @@ router.post('/chats/create', jsonParser, authenticateToken, ChatController.creat
 
 router.post('/chats/getChatNamesFromUserID', jsonParser, authenticateToken, ChatController.getChatNamesFromUserID);
 
+router.post('/chats/rename', jsonParser, ChatController.renameChat);
+
 // Outras rotas relacionadas a Chats
 
 module.exports = router;

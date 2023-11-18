@@ -108,7 +108,7 @@ const Chat = () => {
 
     return (
         <div className='flex flex-row h-screen w-screen overflow-y-hidden'>
-            <ChatBar onClick={handleChatCardClick}/>
+            <ChatBar onClick={handleChatCardClick} chatID={chatID}/>
             <ChatContent content={messages}>
                 <ChatInput 
                 value={userInput} 

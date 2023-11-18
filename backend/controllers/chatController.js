@@ -39,6 +39,16 @@ module.exports = {
     }catch (error){
       return res.status(500).json({ error: 'Falha ao buscar chats do usuário'})
     }
+  },
+
+  renameChat: async (req, res) => {
+    try{
+      const chatID = req.body.chatID
+      const renamedChat = await ChatService.renameChat(chatID);
+      return res.status(200).json(renamedChat)
+    } catch (error){
+      return res.status(500).json({error: 'Erro ao renomear chat'})
+    }
   }
 
   // Outras operações do controlador relacionadas a Chats
