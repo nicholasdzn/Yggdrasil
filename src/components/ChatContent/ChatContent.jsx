@@ -1,9 +1,7 @@
 import React from 'react'
-import { ImSphere } from "react-icons/im";
-import ChatInput from '../ChatInput/ChatInput';
 import "./style.css"
-import { TypeAnimation } from 'react-type-animation';
 import { useRef, useEffect, useState } from 'react';
+import ChatMsg from '../ChatMsg/ChatMsg';
 
 // const ChatContent = ({ children }) => {
 //     return (
@@ -42,23 +40,7 @@ const ChatContent = ({ children, content }) => {
     <>
       <div className='bg-zinc-700 gridChat w-screen h-screen'>
         <div className='overflow-scroll px-20 text-white flex flex-col gap-3 py-5'>
-          {content.map((message, index) => {
-            const key = Object.keys(message)[0];
-            const value = message[key];
-            const isNewMessage = index > lastRenderedMessageIndexRef.current && !firstRender;
-            return (
-              <div className='flex flex-row items-center gap-3 pb-2 border-solid' key={index}>
-                <p>{key === 'user' ? 'model' : 'user'}</p>
-                <div className={`p-2 ${key === 'user' ? 'bg-green-600' : 'bg-blue-600'} rounded`}>
-                  {key === 'model' && isNewMessage ? (
-                    <TypeAnimation speed={100} sequence={[value]}></TypeAnimation>
-                  ) : (
-                    <span>{value}</span>
-                  )}
-                </div>
-              </div>
-            );
-          })}
+          <ChatMsg content={content} lastRenderedMessageIndexRef={lastRenderedMessageIndexRef} firstRender={firstRender} />
         </div>
         <div className='bg-zinc-600 flex flex-col justify-center px-20'>{children}</div>
       </div>
