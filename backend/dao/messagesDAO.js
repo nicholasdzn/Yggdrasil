@@ -18,7 +18,7 @@ module.exports = {
         ChatID: chatID,
         modelID: modelID,
         UserType: userType,
-        Content: content,
+        Content: content
       });
       return message;
     } catch (error) {
@@ -45,7 +45,6 @@ module.exports = {
 
     try {
         const response = await axios.request(options);
-        console.log(response.data.generations[0].text)
         return response.data.generations[0].text;
     } catch (error) {
         console.error(error);

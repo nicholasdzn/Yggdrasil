@@ -9,7 +9,7 @@ import axios from 'axios';
 import ChatCard from '../ChatCard/ChatCard';
 
 
-const ChatBar = () => {
+const ChatBar = ( { onClick } ) => {
 
     const [chat, setChat] = useState([]);
 
@@ -78,7 +78,7 @@ const ChatBar = () => {
                     <h2>Novo Chat</h2>
                 </div>
                 <div>
-                    {<ChatCard content={chat} />}
+                    {<ChatCard content={chat} onChatCardClick={onClick} />}
                 </div>
             </div>
         </aside>

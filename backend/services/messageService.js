@@ -11,13 +11,9 @@ module.exports = {
       throw error;
     }
 
-    generatedAnswer = ''
-    try{
-      const generatedAnswer = await MessageDAO.generateMessage(content);
-    } catch (error){
-      console.log('Não foi possível gerar uma resposta')
-      throw error;
-    }
+    const generatedAnswer = await MessageDAO.generateMessage(content);
+
+    console.log('Service variable: ', generatedAnswer)
 
     try{
       const registeredAwnser = await MessageDAO.createMessage(

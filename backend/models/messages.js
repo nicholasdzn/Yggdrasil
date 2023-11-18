@@ -18,12 +18,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     Content: {
       type: Sequelize.TEXT,
+      allowNull: false
     },
     CreatedDate: {
       type: Sequelize.DATE,
-      default: Sequelize.NOW
+      defaultValue: Sequelize.NOW,
+      allowNull: false
     },
-  }, {
+  },{
     tableName: 'Messages',
     timestamps: false
   });
