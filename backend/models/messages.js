@@ -14,19 +14,20 @@ module.exports = (sequelize, DataTypes) => {
     },
     UserType: {
       type: Sequelize.ENUM('user', 'model'),
+      allowNull: false
     },
     Content: {
       type: Sequelize.TEXT,
-    },
-    SentDate: {
-      type: Sequelize.DATE,
+      allowNull: false
     },
     CreatedDate: {
       type: Sequelize.DATE,
+      defaultValue: Sequelize.NOW,
+      allowNull: false
     },
-  }, {
+  },{
     tableName: 'Messages',
-    timestamp: false
+    timestamps: false
   });
 
   Messages.associate = function(models) {

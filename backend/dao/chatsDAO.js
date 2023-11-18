@@ -49,16 +49,26 @@ module.exports = {
     } catch (error){
       throw error;
     }
+  },
+
+  renameChat: async (chatID) => {
+    try{
+      const chat = await Chat.findByPk(chatID);
+
+      if (!chat) {
+        throw new Error('Chat não encontrado');
+      }
+
+      chat.ChatName = newChatName;
+      await chat.save();
+
+      return chat;
+
+    }catch (error){
+      throw error
+    }
   }
 
-  // getChatContentFromChatID : async (chatID) => {
-
-  //   try{
-  //     const chatMessages = null
-  //   } catch (error){
-  //     throw error;
-  //   }
-  // }
 
   // Outras operações de acesso a dados relacionadas a Chats
 };

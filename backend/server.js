@@ -7,6 +7,7 @@ const Sequelize = require('sequelize');
 const config = require('./config/config.js').development;
 const server = express();
 const chatRoutes = require('./routes/chatRoutes.js');
+const messageRoutes = require('./routes/messagesRoutes.js');
 
 server.use(cors());
 
@@ -62,6 +63,7 @@ sequelize.sync({ force: true }) // ATENÇÃO: { force: true } irá DROPAR suas t
 
 server.use('/api', userRoutes);
 server.use('/api', chatRoutes);
+server.use('/api', messageRoutes);
 
 server.all('*', (req, res) => {
   return handle(req, res);

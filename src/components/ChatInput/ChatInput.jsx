@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { IoMdSend } from "react-icons/io";
+import { Circles } from 'react-loader-spinner';
 
-const ChatInput = ({ value, handleInput, handleSubmit, setValue }) => {
+const ChatInput = ({ value, handleInput, handleSubmit, setValue, disabled }) => {
 
     // const handleTextAreaInput = (event) => {
     //     const textArea = event.target;
@@ -32,6 +33,7 @@ const ChatInput = ({ value, handleInput, handleSubmit, setValue }) => {
                 value={value}
                 onChange={handleInput}
                 onKeyDown={handleKey}
+                disabled={disabled}
             // onInput={handleTextAreaInput}
             // style={{ maxHeight: '140px' }}  // Altura máxima com barra de rolagem
             />
@@ -39,7 +41,19 @@ const ChatInput = ({ value, handleInput, handleSubmit, setValue }) => {
                 className="bg-green-400 text-white rounded-lg px-6 hover:bg-green-300 focus:outline-none"
                 onClick={handleSubmit}
             >
-                <IoMdSend size={'20px'} />
+                {disabled ? (
+                    <Circles
+                    height="40"
+                    width="40"
+                    color="#4fa94d"
+                    ariaLabel="circles-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                    />
+                ): (<IoMdSend size={'20px'} />
+                )}
+
             </button>
         </div>
     );

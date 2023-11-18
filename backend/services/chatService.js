@@ -29,5 +29,13 @@ module.exports = {
     }
   },
 
+  renameChat: async (chatID) => {
+    try{
+      return await ChatDAO.renameChat(chatID);
+    }catch (error){
+      throw error
+    }
+  }
+
   // Outras operações de lógica de negócios relacionadas a Chats
 };

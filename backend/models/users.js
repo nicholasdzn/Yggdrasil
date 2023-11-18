@@ -23,10 +23,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     Created_At: {
       type: Sequelize.DATE,
-      default: Sequelize.NOW
+      defaultValue: Sequelize.NOW,
+      allowNull: false
     },
     Last_Login: {
       type: Sequelize.DATE,
+      defaultValue: Sequelize.NOW,
       allowNull: true
     }
   }, {
