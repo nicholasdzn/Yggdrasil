@@ -12,15 +12,24 @@ const Chat = () => {
     const [userInput, setUserInput] = useState('');
     // const [aiMsg, setAiMsg] = useState('');
     const [chatID, setChatID] = useState()
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const [messages, setMessages] = useState([]);
+
+    const addCurrentMessage = () => {
+        const refreshedArray = [...messages];
+        refreshedArray.push({"user": userInput});
+        setMessages(refreshedArray);
+    }
 
     const createMessage = async (modelID, content) => {
 
         if (!chatID){return}
 
         try {
+
+            setIsLoading(true);
 
             const data = {
                 chatID: chatID,
@@ -40,10 +49,12 @@ const Chat = () => {
             if (res.status === 201) {
                 console.log('Mensagem criada')
                 loadMessages();
+                setIsLoading(false);
             }
         }
         catch (error) {
             console.error('Erro:', error);
+            setIsLoading(false);
         }
     }
 
@@ -84,14 +95,11 @@ const Chat = () => {
         setChatID(chatID);
     };
 
-    // const handleSubmit = async () => {
-    //     try {
-    //         const apiResponse = await generateText(userInput);
-    //         setAiMsg(apiResponse);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
+    const handleSubmit = async () => {
+        if (isLoading) {return}
+        addCurrentMessage();
+        createMessage();
+    };
 
     useEffect(() => {
         console.log('Current ChatID', chatID)
@@ -102,7 +110,13 @@ const Chat = () => {
         <div className='flex flex-row h-screen w-screen overflow-y-hidden'>
             <ChatBar onClick={handleChatCardClick}/>
             <ChatContent content={messages}>
-                <ChatInput value={userInput} setValue={setUserInput} handleInput={handleInput} handleSubmit={createMessage} />
+                <ChatInput 
+                value={userInput} 
+                setValue={setUserInput}
+                handleInput={handleInput} 
+                handleSubmit={handleSubmit}
+                disabled={isLoading} 
+                />
             </ChatContent>
         </div>
     )
