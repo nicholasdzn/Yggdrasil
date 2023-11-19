@@ -16,9 +16,10 @@ module.exports = {
       
       console.log("Usuário registrado com sucesso");
       
-      return res.status(200).json({ token });
-    } catch ({ name, message }) {
-      return res.status(500).json({ error: 'Erro ao criar usuário.', message: message });
+      return res.status(201).json({ token });
+    } catch (error) {
+      console.log('Erro ao criar usuário');
+      return res.status(500).json({ error: 'Erro ao criar usuário.', erro: error });
     }
   },
 
@@ -27,6 +28,9 @@ module.exports = {
     try {
 
       const { email, password } = req.body;
+
+      console.log("Email Received", email);
+      console.log('Password Received', password)
   
       const user = await UserService.authenticateUser(email, password);
   
@@ -36,8 +40,9 @@ module.exports = {
       
       return res.status(200).json({ token });
     } catch (error) {
+      console.log('Erro ao fazer login');
       console.error("Erro ao fazer login:", error);
-      return res.status(500).json({ error: "Erro interno do servidor" });
+      return res.status(500).json({ error: "Erro interno do servidor", erro: error });
     }
   }
 

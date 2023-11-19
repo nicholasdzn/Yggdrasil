@@ -51,11 +51,15 @@ module.exports = {
         throw new Error('E-mail ou senha incorretos')
       }
 
+      console.log("Password: ", password, "email", email)
+
       const isMatch = await bcrypt.compare(password, user.Password_Hash)
 
       if (!isMatch){
         throw new Error('E-mail ou senha incorretos')
       }
+
+      console.log('DENTRO AUTH', isMatch);
 
       return {
         id: user.UserID,

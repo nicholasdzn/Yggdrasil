@@ -19,10 +19,19 @@ const Login = () => {
     const handleSubmit = async (e) => {
 
         e.preventDefault();
-        
+
+        if (!formData.email || !formData.password){
+            Swal.fire({
+              icon: "error",
+              title: "Campos obrigatórios em branco",
+              text: "Por favor, preencha todos os campos obrigatórios.",
+            });
+            return;
+        }
+
         const response = await loginUser(formData);
 
-        if (response.status === 200) {
+        if (response && response.status === 200) {
             Swal.fire({
                 icon: "success",
                 title: "Sucesso!",

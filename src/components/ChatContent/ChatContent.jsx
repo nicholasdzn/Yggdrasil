@@ -1,6 +1,6 @@
 import React from 'react'
 import "./style.css"
-import { useRef, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ChatMsg from '../ChatMsg/ChatMsg';
 
 const ChatContent = ({ children, content, chatID }) => {
