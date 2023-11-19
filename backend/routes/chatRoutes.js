@@ -13,6 +13,8 @@ router.post('/chats/getChatNamesFromUserID', jsonParser, authenticateToken, Chat
 
 router.post('/chats/rename', jsonParser, ChatController.renameChat);
 
+router.post('/chats/delete', jsonParser, ChatController.deleteChat);
+
 // Outras rotas relacionadas a Chats
 
 module.exports = router;

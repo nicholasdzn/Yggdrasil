@@ -1,9 +1,9 @@
 import React from 'react'
 import FormLogin from '../../components/FormLogin/FormLogin'
-import axios from 'axios'
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import { registerUser } from '../../api/userApis'
 
 const Register = () => {
 
@@ -17,18 +17,19 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:3001/api/users/create', formData);
-      if (response.status === 200) {
-        Swal.fire({
-          icon: "success",
-          title: "Sucesso!",
-          text: "Você foi cadastrado com sucesso!",
-          preConfirm: navigate("/login")
-        });
-      }
-    }
-    catch (error) {
+
+    const response = await registerUser(formData);
+
+    console.log("Resposta",response);
+    
+    if (response.status === 200) {
+      Swal.fire({
+        icon: "success",
+        title: "Sucesso!",
+        text: "Você foi cadastrado com sucesso!",
+        preConfirm: navigate("/login")
+      })
+    } else {
       Swal.fire({
         icon: "error",
         title: "Oops...",

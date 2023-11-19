@@ -37,35 +37,60 @@ module.exports = {
   },
 
   getChatNamesFromUserID: async (userID) => {
-    try{
-
+    try {
       const chatNames = await Chats.findAll({
-        where: { userID },
-        attributes: ['ChatName', 'ChatID']
+        where: {
+          userID,
+          IsDeleted: false
+        },
+        attributes: ['ChatName', 'ChatID'],
       });
-
+  
       return chatNames;
-      
-    } catch (error){
+    } catch (error) {
       throw error;
     }
   },
 
-  renameChat: async (chatID) => {
+  renameChat: async (chatID, newName) => {
     try{
-      const chat = await Chat.findByPk(chatID);
+      const chat = await Chats.findByPk(chatID);
 
       if (!chat) {
         throw new Error('Chat não encontrado');
       }
 
-      chat.ChatName = newChatName;
+      chat.ChatName = newName;
       await chat.save();
 
       return chat;
 
     }catch (error){
       throw error
+    }
+  },
+
+  deleteChat: async (chatID) => {
+    console.log(chatID)
+    try {
+      const rowsUpdated = await Chats.update(
+        { IsDeleted: true },
+        {
+          where: { ChatID: chatID }
+        }
+      );
+
+      console.log("rows", rowsUpdated);
+  
+      if (rowsUpdated[0] === 1) {
+        console.log(`Chat com ChatID ${chatID} foi marcado como deletado.`);
+        return;
+      } else {
+        console.error(`Chat com ChatID ${chatID} não foi encontrado.`);
+        return null;
+      }
+    } catch (error) {
+      throw error;
     }
   }
 

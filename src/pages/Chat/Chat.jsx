@@ -4,87 +4,21 @@ import "./style.css"
 import ChatContent from '../../components/ChatContent/ChatContent'
 import { useState } from 'react'
 import ChatInput from '../../components/ChatInput/ChatInput'
-import generateText from '../../api/cohereGenerate'
-import axios from 'axios';
+
+import { createMessage, loadMessages } from '../../api/messagesApis'
+import { renameChat, deleteChat } from '../../api/chatApis'
 
 const Chat = () => {
 
     const [userInput, setUserInput] = useState('');
-    // const [aiMsg, setAiMsg] = useState('');
     const [chatID, setChatID] = useState()
     const [isLoading, setIsLoading] = useState(false);
-
-
     const [messages, setMessages] = useState([]);
 
     const addCurrentMessage = () => {
         const refreshedArray = [...messages];
         refreshedArray.push({"user": userInput});
         setMessages(refreshedArray);
-    }
-
-    const createMessage = async (modelID, content) => {
-
-        if (!chatID){return}
-
-        try {
-
-            setIsLoading(true);
-
-            const data = {
-                chatID: chatID,
-                // modelID: modelID,
-                modelID: 1,
-                content: userInput
-            }
-
-            const res = await axios({
-                method: 'POST',
-                url: "http://localhost:3001/api/messages/create",
-                data: data
-            })
-
-            console.log('response', res.status)
-            
-            if (res.status === 201) {
-                console.log('Mensagem criada')
-                loadMessages();
-                setIsLoading(false);
-            }
-        }
-        catch (error) {
-            console.error('Erro:', error);
-            setIsLoading(false);
-        }
-    }
-
-    const loadMessages =  async () => {
-
-
-        if (!chatID){return}
-
-        console.log('Loading Messages for chatID:', chatID)
-
-        try {
-
-            const data = {chatID: chatID}
-
-            const res = await axios({
-                method: 'POST',
-                url: "http://localhost:3001/api/messages/chatMessages",
-                data: data
-            })
-
-            console.log('response', res.status)
-            
-            if (res.status === 200) {
-                setMessages(res.data)
-            }
-        }
-        catch (error) {
-            console.error('Erro:', error);
-        }
-
     }
 
     const handleInput = (e) => {
@@ -98,18 +32,18 @@ const Chat = () => {
     const handleSubmit = async () => {
         if (isLoading) {return}
         addCurrentMessage();
-        createMessage();
+        createMessage(chatID, userInput, setIsLoading, setMessages);
     };
 
     useEffect(() => {
         console.log('Current ChatID', chatID)
-        loadMessages();
+        loadMessages(chatID, setMessages);
       }, [chatID]);
 
     return (
         <div className='flex flex-row h-screen w-screen overflow-y-hidden'>
-            <ChatBar onClick={handleChatCardClick} chatID={chatID}/>
-            <ChatContent content={messages}>
+            <ChatBar onClick={handleChatCardClick} chatID={chatID} onEdit={renameChat} onDelete={deleteChat}/>
+            <ChatContent content={messages} chatID={chatID}>
                 <ChatInput 
                 value={userInput} 
                 setValue={setUserInput}

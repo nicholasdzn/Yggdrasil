@@ -1,20 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { IoMdSend } from "react-icons/io";
 import { Circles } from 'react-loader-spinner';
 
 const ChatInput = ({ value, handleInput, handleSubmit, setValue, disabled }) => {
-
-    // const handleTextAreaInput = (event) => {
-    //     const textArea = event.target;
-    //     textArea.style.height = 'auto'; // Reseta a altura para recalcular a nova altura
-    //     if (textArea.scrollHeight > 140) {
-    //         textArea.style.overflowY = 'scroll'; // Ativa a barra de rolagem
-    //         textArea.style.height = '100px'; // Define a altura máxima
-    //     } else {
-    //         textArea.style.overflowY = 'hidden'; // Esconde a barra de rolagem se não for necessária
-    //         textArea.style.height = `${textArea.scrollHeight}px`;
-    //     }
-    // };
 
     const handleKey = (e) => {
         if (e.key === 'Enter' && !e.shiftKey) {
@@ -34,8 +22,6 @@ const ChatInput = ({ value, handleInput, handleSubmit, setValue, disabled }) => 
                 onChange={handleInput}
                 onKeyDown={handleKey}
                 disabled={disabled}
-            // onInput={handleTextAreaInput}
-            // style={{ maxHeight: '140px' }}  // Altura máxima com barra de rolagem
             />
             <button
                 className="bg-green-400 text-white rounded-lg px-6 hover:bg-green-300 focus:outline-none"

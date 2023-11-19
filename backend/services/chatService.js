@@ -29,9 +29,17 @@ module.exports = {
     }
   },
 
-  renameChat: async (chatID) => {
+  renameChat: async (chatID, newName) => {
     try{
-      return await ChatDAO.renameChat(chatID);
+      return await ChatDAO.renameChat(chatID, newName);
+    }catch (error){
+      throw error
+    }
+  },
+
+  deleteChat: async (chatID) => {
+    try{
+      return await ChatDAO.deleteChat(chatID)
     }catch (error){
       throw error
     }

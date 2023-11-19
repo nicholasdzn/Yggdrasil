@@ -43,11 +43,22 @@ module.exports = {
 
   renameChat: async (req, res) => {
     try{
-      const chatID = req.body.chatID
-      const renamedChat = await ChatService.renameChat(chatID);
+      const {chatID, newName} = req.body
+      const renamedChat = await ChatService.renameChat(chatID, newName);
       return res.status(200).json(renamedChat)
     } catch (error){
       return res.status(500).json({error: 'Erro ao renomear chat'})
+    }
+  },
+
+  deleteChat: async (req, res) => {
+    try{
+      const chatID = req.body.chatID
+      const deletedChat = await ChatService.deleteChat(chatID);
+      return res.status(200).json(deletedChat);
+    }catch (error){
+      console.log(error)
+      return res.status(500).json({error: 'Erro ao deletar chat'})
     }
   }
 
