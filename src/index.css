@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,11 +12,8 @@
     --color-gradient: linear-gradient(90deg, var(--azul), var(--verde));
 }
 
-.font-regular {
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-}
 
 * {
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
