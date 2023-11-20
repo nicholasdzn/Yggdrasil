@@ -29,6 +29,8 @@ const Register = () => {
 
     const response = await registerUser(formData);
 
+    console.log(response.status)
+
     if (response && response.status === 201) {
       Swal.fire({
         icon: "success",
@@ -36,7 +38,14 @@ const Register = () => {
         text: "Você foi cadastrado com sucesso!",
         preConfirm: navigate("/login")
       })
-    } else {
+    }
+    else if (response && response.status === 409) {
+      Swal.fire({
+        icon: "error",
+        title: "Esse E-mail já foi cadastrado",
+        text: "Tente novamente com um E-mail diferente.",
+      }
+    )}else {
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -44,7 +53,7 @@ const Register = () => {
       });
       console.error('Erro:', error);
     }
-  };
+  }
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

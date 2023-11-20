@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-export const deleteChat = async (chatID, setChats) => {
+export const deleteChat = async (chatID, setChats, setChatID) => {
     try {
 
         const token = localStorage.getItem('authtoken');
@@ -19,6 +19,7 @@ export const deleteChat = async (chatID, setChats) => {
 
         if (res.status === 200) {
             loadChats(setChats);
+            setChatID(null);
         }
     }
     catch (error) {
@@ -87,6 +88,7 @@ export const createChat = async (modelID, chatName, setChats) => {
         })
         console.log('response', res.status)
         if (res.status === 201) {
+            console.log("CREATE RES", res)
             loadChats(setChats);
         }
     }

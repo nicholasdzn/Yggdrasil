@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BsChatLeft } from 'react-icons/bs';
 import { FaTrashAlt, FaEdit } from 'react-icons/fa';
 
-const ChatCard = ({ content, onChatCardClick, setSelectedChatID, selectedChatID, onEditChatName, onDeleteChat, setChats }) => {
+const ChatCard = ({ content, onChatCardClick, setSelectedChatID, selectedChatID, onEditChatName, onDeleteChat, setChats, setChatID }) => {
   
   const [isEditing, setIsEditing] = useState(false);
   const [newChatName, setNewChatName] = useState('');
@@ -18,7 +18,7 @@ const ChatCard = ({ content, onChatCardClick, setSelectedChatID, selectedChatID,
   };
 
   const handleDeleteClick = () => {
-    onDeleteChat(selectedChatID, setChats);
+    onDeleteChat(selectedChatID, setChats, setChatID);
   };
 
   const handleKey = (e) => {

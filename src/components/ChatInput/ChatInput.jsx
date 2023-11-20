@@ -2,7 +2,7 @@ import React from 'react';
 import { IoMdSend } from "react-icons/io";
 import { Circles } from 'react-loader-spinner';
 
-const ChatInput = ({ value, handleInput, handleSubmit, setValue, disabled }) => {
+const ChatInput = ({ value, handleInput, handleSubmit, setValue, isLoading, disabled }) => {
 
     const handleKey = (e) => {
         if (e.key === 'Enter' && !e.shiftKey) {
@@ -13,7 +13,7 @@ const ChatInput = ({ value, handleInput, handleSubmit, setValue, disabled }) => 
     }
 
     return (
-        <div className='flex flex-row justify-center bg-transparent border border-white rounded-lg'>
+        <div className='flex flex-row justify-center bg-transparent border border-white rounded-lg '>
             <textarea
                 type="text"
                 placeholder="Faça sua pergunta..."
@@ -21,21 +21,21 @@ const ChatInput = ({ value, handleInput, handleSubmit, setValue, disabled }) => 
                 value={value}
                 onChange={handleInput}
                 onKeyDown={handleKey}
-                disabled={disabled}
+                disabled={disabled || isLoading}
             />
             <button
                 className="bg-green-400 text-white rounded-lg px-6 hover:bg-green-300 focus:outline-none"
                 onClick={handleSubmit}
             >
-                {disabled ? (
+                {isLoading ? (
                     <Circles
-                    height="40"
-                    width="40"
-                    color="#4fa94d"
-                    ariaLabel="circles-loading"
-                    wrapperStyle={{}}
-                    wrapperClass=""
-                    visible={true}
+                        height="40"
+                        width="40"
+                        color="#4fa94d"
+                        ariaLabel="circles-loading"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        visible={true}
                     />
                 ): (<IoMdSend size={'20px'} />
                 )}

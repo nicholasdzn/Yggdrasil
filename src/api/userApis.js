@@ -14,6 +14,10 @@ export const registerUser = async (formData) => {
         console.log('Executing')
         return await axios.post('http://localhost:3001/api/users/create', formData);
     } catch (error) {
-        console.error('Erro', error)
+        if (error.response && error.response.status === 409){
+            return error.response;
+        }else {
+            return error
+        }
     }
 }

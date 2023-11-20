@@ -17,9 +17,13 @@ module.exports = {
       console.log("Usuário registrado com sucesso");
       
       return res.status(201).json({ token });
-    } catch (error) {
-      console.log('Erro ao criar usuário');
-      return res.status(500).json({ error: 'Erro ao criar usuário.', erro: error });
+    } catch (error){
+      console.log(error.message)
+      if (error.message === 'Esse e-mail já foi cadastrado'){
+        return res.status(409).json({ message: error.message });
+      }else {
+        return res.status(500).json({ error: 'Erro ao criar usuário.', erro: error });
+      }
     }
   },
 
