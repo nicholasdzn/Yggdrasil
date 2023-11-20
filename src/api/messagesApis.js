@@ -6,6 +6,8 @@ export const createMessage = async (chatID, content, setIsLoading, setMessages, 
 
     try {
 
+        const token = localStorage.getItem('authtoken');
+
         setIsLoading(true);
 
         const data = {
@@ -18,7 +20,10 @@ export const createMessage = async (chatID, content, setIsLoading, setMessages, 
         const res = await axios({
             method: 'POST',
             url: "http://localhost:3001/api/messages/create",
-            data: data
+            data: data,
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
         })
 
         if (res.status === 201) {
@@ -28,7 +33,10 @@ export const createMessage = async (chatID, content, setIsLoading, setMessages, 
             const res = await axios({
                 method: 'POST',
                 url: "http://localhost:3001/api/messages/chatMessages",
-                data: data
+                data: data,
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
             })
 
             if (res.status === 200) {
@@ -52,12 +60,17 @@ export const loadMessages =  async (chatID, setMessages, messages, inPlace=true)
 
     try {
 
+        const token = localStorage.getItem('authtoken');
+
         const data = {chatID: chatID}
 
         const res = await axios({
             method: 'POST',
             url: "http://localhost:3001/api/messages/chatMessages",
-            data: data
+            data: data,
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
         })
 
         if (res.status === 200) {

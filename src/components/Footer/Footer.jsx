@@ -6,8 +6,8 @@ const Footer = () => {
             <div className='pb-2'><Logo height={50} width={150} /></div>
             <p>©{new Date().getFullYear()} Desenvolvido por TMNG DEVS. Todos os direitos reservados.</p>
             <div className='flex flex-row gap-2'>
-                <a href="/termos" className="text-blue-300 hover:text-blue-500">Termos de Uso</a> |
-                <a href="/privacidade" className="text-blue-300 hover:text-blue-500">Política de Privacidade</a>
+                <a className="text-blue-300 hover:text-blue-500">Termos de Uso</a> |
+                <a className="text-blue-300 hover:text-blue-500">Política de Privacidade</a>
             </div>
         </footer>
     );

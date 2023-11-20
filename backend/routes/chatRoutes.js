@@ -11,9 +11,9 @@ router.post('/chats/create', jsonParser, authenticateToken, ChatController.creat
 
 router.post('/chats/getChatNamesFromUserID', jsonParser, authenticateToken, ChatController.getChatNamesFromUserID);
 
-router.post('/chats/rename', jsonParser, ChatController.renameChat);
+router.post('/chats/rename', jsonParser, authenticateToken, ChatController.renameChat);
 
-router.post('/chats/delete', jsonParser, ChatController.deleteChat);
+router.post('/chats/delete', jsonParser, authenticateToken, ChatController.deleteChat);
 
 // Outras rotas relacionadas a Chats
 
