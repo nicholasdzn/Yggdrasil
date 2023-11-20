@@ -53,7 +53,7 @@ async function insertDefaultModels(models) {
 }
 
 sequelize.sync({ force: true }) // ATENÇÃO: { force: true } irá DROPAR suas tabelas existentes
-// sequelize.sync() // ATENÇÃO: { force: true } irá DROPAR suas tabelas existentes
+// sequelize.sync()
   .then(() => {
     console.log('Banco de dados e tabelas criados!');
     insertDefaultModels(models).then(() => {

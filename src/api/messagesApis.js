@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const createMessage = async (chatID, content, setIsLoading, setMessages) => {
+export const createMessage = async (chatID, content, setIsLoading, setMessages, messages, inPlace=false) => {
 
     if (!chatID){return}
 
@@ -22,7 +22,19 @@ export const createMessage = async (chatID, content, setIsLoading, setMessages) 
         })
 
         if (res.status === 201) {
-            loadMessages(chatID, setMessages);
+
+            const data = {chatID: chatID}
+
+            const res = await axios({
+                method: 'POST',
+                url: "http://localhost:3001/api/messages/chatMessages",
+                data: data
+            })
+
+            if (res.status === 200) {
+                loadMessages(chatID, setMessages, messages, inPlace)
+            }
+
             setIsLoading(false);
         }
     }
@@ -32,7 +44,7 @@ export const createMessage = async (chatID, content, setIsLoading, setMessages) 
     }
 }
 
-export const loadMessages =  async (chatID, setMessages) => {
+export const loadMessages =  async (chatID, setMessages, messages, inPlace=true) => {
 
     if (!chatID){return}
 
@@ -49,7 +61,22 @@ export const loadMessages =  async (chatID, setMessages) => {
         })
 
         if (res.status === 200) {
-            setMessages(res.data)
+            const messagesWithId = res.data.map(message => ({
+                ...message,
+                id: Date.now()
+            }));
+
+            if (!inPlace){
+                const lastUserMessage = messagesWithId[messagesWithId.length -2]
+                const lastModelMessage = messagesWithId[messagesWithId.length -1]
+                const updatedMessages = [...messages]
+                updatedMessages.push(lastUserMessage);
+                updatedMessages.push(lastModelMessage);
+                setMessages(updatedMessages)
+            } else {
+                setMessages(messagesWithId)
+            }
+
         }
     }
     catch (error) {
