@@ -1,10 +1,20 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import "./style.css"
 import ChatMsg from '../ChatMsg/ChatMsg';
 import Finka from "../../Assets/Img/finka.png"
-// import Gojo from "../../Assets/Img/gojo.png"
+import Gojo from "../../Assets/Img/gojo.png"
 
 const ChatContent = ({ children, content, lastMessageIdBeforeUpdate, chatID, isLoading }) => {
+
+  const [mostrarSegundaImagem, setMostrarSegundaImagem] = useState(false);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setMostrarSegundaImagem(true);
+    }, 2000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   return (
     <>
@@ -16,7 +26,7 @@ const ChatContent = ({ children, content, lastMessageIdBeforeUpdate, chatID, isL
               <h1 className='text-5xl font-bold'>Bem vindo ao Chat</h1>
               <p>Para começar, por favor crie ou selecione um novo chat!</p>
             </div>
-            <div><img src={Finka} alt="" /></div>
+            {!mostrarSegundaImagem ? <img src={Gojo} alt="" /> : <img src={Finka} alt="" />}
           </div> 
           : <ChatMsg content={content} lastMessageIdBeforeUpdate={lastMessageIdBeforeUpdate} isLoading={isLoading}/>}
         </div>
